@@ -2,6 +2,7 @@ package com.my.garage.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
@@ -11,11 +12,12 @@ import java.math.BigDecimal;
 @Table(name = "accounts")
 @Getter
 @Setter
-@RequiredArgsConstructor
+@NoArgsConstructor
 public class Account {
     @Id
+    private Long id;
     @OneToOne
-    @MapsId
+    @MapsId()
     @JoinColumn(name = "driver_id")
     private VehicleDriver vehicleDriver;
     private BigDecimal amount;
